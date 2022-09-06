@@ -29,6 +29,7 @@ const Result = () =>{
         <img src={resultData.image} className='rounded-circle' width={350} height={350} alt='reault cat img'/>
       </LogoImage>
       <Desc>예비 집사님과 찰떡궁합인 고양이는 {resultData.name} 입니다</Desc>
+      <Desc>{resultData.desc}</Desc>
       <ButtonGroup>
         <Button onClick={()=>navigate('/')}>테스트 다시하기</Button>
         <KakaoShareButton data={resultData} />
