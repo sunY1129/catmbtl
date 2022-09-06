@@ -2,10 +2,10 @@ import React from "react";
 import Button from 'react-bootstrap/Button'
 const {Kakao} = window;
 
-const KakaoShareButton = () =>{
-  const url = 'https://catmbit1129.netlify.app'
+const KakaoShareButton = ({data}) =>{
+  const url = 'https://catmbit1129.netlify.app/'
   const reaultUrl = window.location.href;
-  console.log('aaa',reaultUrl,url)
+  console.log('data',data)
   React.useEffect(()=>{
     Kakao.cleanup()
     Kakao.init('636ed990f77200b10a6548632f88b637')
@@ -16,12 +16,11 @@ const KakaoShareButton = () =>{
       objectType: 'feed',
       content: {
         title: '예비집사 판별기 결과',
-        description: '예비집사가 고양이를 키운다면 가장 잘 맞는 고양이는?',
-        imageUrl:
-          'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+        description: `예비집사가 고양이를 키운다면 가장 잘 맞는 고양이는 ${data.name}입니다.`,
+        imageUrl: url+data.image,
         link: {
-          mobileWebUrl: 'https://developers.kakao.com',
-          androidExecutionParams: 'test',
+          mobileWebUrl: reaultUrl,
+          webUrl: reaultUrl,
         },
       },
       buttons: [
@@ -29,6 +28,7 @@ const KakaoShareButton = () =>{
           title: '나도 테스트 하러가기',
           link: {
             mobileWebUrl: url,
+            webUrl: url,
           },
         },
       ]
