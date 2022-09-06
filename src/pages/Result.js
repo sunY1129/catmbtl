@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Button from 'react-bootstrap/Button'
 import { ResultData } from '../asset/data/resultdata'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import KakaoShareButton from '../Component/KakaoShareButton'
 
 const Result = () =>{
   const navigate = useNavigate()
@@ -28,7 +29,10 @@ const Result = () =>{
         <img src={resultData.image} className='rounded-circle' width={350} height={350} alt='reault cat img'/>
       </LogoImage>
       <Desc>예비 집사님과 찰떡궁합인 고양이는 {resultData.name} 입니다</Desc>
-      <Button onClick={()=>navigate('/')}>테스트 다시하기</Button>
+      <ButtonGroup>
+        <Button onClick={()=>navigate('/')}>테스트 다시하기</Button>
+        <KakaoShareButton />
+      </ButtonGroup>
     </Wrapper>
   )
 }
@@ -59,4 +63,10 @@ const LogoImage = styled.div`
 const Desc = styled.div`
   font-size: 20px;
   margin-top: 20px;
+`
+
+const ButtonGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 `
